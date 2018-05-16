@@ -31,7 +31,7 @@ enablePlugins(
   GitVersioning
 )
 
-maintainer in Docker := "Sebastian Voss <sebastian.voss@eon.com>"
+maintainer in Docker := "Sebastian Voss"
 dockerBaseImage := "anapsix/alpine-java:8_server-jre_unlimited"
 dockerExposedPorts := Seq(8080)
 dockerUpdateLatest := true
