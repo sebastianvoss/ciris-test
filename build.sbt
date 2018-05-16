@@ -42,3 +42,4 @@ buildInfoOptions += BuildInfoOption.ToJson
 buildInfoOptions += BuildInfoOption.BuildTime
 
 git.useGitDescribe := true
+
