@@ -40,6 +40,3 @@ buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 buildInfoPackage := "com.sebastianvoss.buildinfo"
 buildInfoOptions += BuildInfoOption.ToJson
 buildInfoOptions += BuildInfoOption.BuildTime
-
-git.useGitDescribe := true
-
