@@ -1,7 +1,5 @@
 name := "ciris-test"
 
-version := "0.1"
-
 scalaVersion := "2.12.6"
 
 val enumeratumVersion = "1.5.13"
@@ -21,3 +19,24 @@ libraryDependencies ++= Seq(
   "is.cir" %% "ciris-spire",
   "is.cir" %% "ciris-squants"
 ).map(_ % cirisVersion)
+
+javaOptions in Universal ++= Seq(
+  "-J-Xmx2048m",
+  "-J-XshowSettings:all"
+)
+
+enablePlugins(
+  JavaAppPackaging,
+  BuildInfoPlugin,
+  GitVersioning
+)
+
+maintainer in Docker := "Sebastian Voss <sebastian.voss@eon.com>"
+dockerBaseImage := "anapsix/alpine-java:8_server-jre_unlimited"
+dockerExposedPorts := Seq(8080)
+dockerUpdateLatest := true
+
+buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
+buildInfoPackage := "com.sebastianvoss.buildinfo"
+buildInfoOptions += BuildInfoOption.ToJson
+buildInfoOptions += BuildInfoOption.BuildTime

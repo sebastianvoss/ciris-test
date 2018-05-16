@@ -6,6 +6,7 @@ import ciris.refined._
 import ciris.enumeratum._
 import com.sebastianvoss.AppEnvironment._
 import com.sebastianvoss.Config.ApiKey
+import com.sebastianvoss.buildinfo.BuildInfo
 import eu.timepit.refined.types.net.UserPortNumber
 import eu.timepit.refined.auto._
 
@@ -37,7 +38,9 @@ object Application extends App {
     }
 
   config match {
-    case Right(c) => println(c)
+    case Right(c) =>
+      println(c)
+      println(BuildInfo)
     case Left(errors) => errors.messages.foreach(println)
   }
 
